@@ -1,0 +1,25 @@
+Package: fcf
+Title: Free Cash Flow Valuation
+Description:
+    Perform Free Cash Flow (FCF) valuation on public companies by ticker symbol.
+    Etc.
+Version: 0.1.0
+Date: 2018-11-22
+Authors@R:
+  c(person("Ryan", "Price", email = "ryapric@gmail.com", role = c("cre", "aut")))
+License: MIT + file LICENSE
+Depends: R (>= 3.4.0)
+Imports:
+  dplyr (>= 0.7.4),
+  lubridate,
+  rvest
+Suggests:
+    devtools (>= 2.0.0),
+    knitr (>= 1.19),
+    rmarkdown (>= 1.8),
+    testthat
+URL: https://github.com/ryapric/fcf
+BugReports: https://github.com/ryapric/fcf/issues
+RoxygenNote: 6.1.0
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
