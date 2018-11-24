@@ -12,4 +12,7 @@ test_that("Convert to data.frame and clean up", {
 test_that("Get FCFs", {
     expect_true("data.frame" %in% class(df_0))
     expect_equal(nrow(fcf_0), 4)
+    expect_equal(fcf_0$fcf,
+                 (fcf_0$`Total Cash Flow From Operating Activities` -
+                     fcf_0$`Total Cash Flows From Investing Activities`))
 })
