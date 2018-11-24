@@ -6,5 +6,7 @@ scrape_financials <- function(sym) {
     list_out <- read_html(url_cf) %>%
         html_nodes(., "table") %>%
         html_table(.)
+    list_out$Symbol <- sym
+
     list_out
 }

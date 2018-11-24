@@ -10,9 +10,10 @@ Authors@R:
 License: MIT + file LICENSE
 Depends: R (>= 3.4.0)
 Imports:
-  dplyr (>= 0.7.4),
-  lubridate,
-  rvest
+    dplyr (>= 0.7.4),
+    lubridate,
+    rvest,
+    xml2
 Suggests:
     devtools (>= 2.0.0),
     knitr (>= 1.19),
