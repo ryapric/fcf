@@ -1,7 +1,7 @@
 library(fcf)
 library(dplyr)
 
-syms <- c("AAPL", "MSFT", "GOOG", "AMZN")
+syms <- commandArgs(trailingOnly = TRUE)
 
 for (sym in syms) {
     give_recommendation(sym)

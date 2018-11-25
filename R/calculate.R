@@ -37,7 +37,7 @@ give_recommendation <- function(sym) {
     est_g <- estimate_g(sym)
     actual_g <- (((1 + prod(diff(log(df_0$fcf)))) ^ (nrow(df_0) - 1)) - 1)
 
-    rec <- ifelse(prices$fair_price < prices$mkt_price, "BUY", "SELL / SHORT")
+    rec <- ifelse(prices$fair_price > prices$mkt_price, "BUY", "SELL / SHORT")
 
     print(glue::glue("\n{sym}:\n",
                "Expected FCF growth based on current market price of ${round(prices$mkt_price, 2)}: {round(est_g, 4)}\n",
