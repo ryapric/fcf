@@ -1,6 +1,8 @@
+library(fcf)
 library(dplyr)
 
-sym <- "AAPL"
+syms <- c("AAPL", "MSFT", "GOOG", "AMZN")
 
-list_0 <- scrape_financials(sym)
-df_0 <- prep_financials(list_0)
+for (sym in syms) {
+    give_recommendation(sym)
+}

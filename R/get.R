@@ -48,10 +48,10 @@ scrape_shares_outstanding <- function(sym) {
 #'
 #' @inheritParams scrape_financials
 get_prices <- function(sym) {
-    df_sym <- quantmod::annualReturn(quantmod::getSymbols(sym, from = Sys.Date() - lubridate::years(5), auto.assign = FALSE))
+    df_sym <- quantmod::monthlyReturn(quantmod::getSymbols(sym, from = Sys.Date() - lubridate::years(3), auto.assign = FALSE))
     colnames(df_sym)[1] <- "rs"
 
-    df_mkt <- quantmod::annualReturn(quantmod::getSymbols("^GSPC", from = Sys.Date() - lubridate::years(5), auto.assign = FALSE))
+    df_mkt <- quantmod::monthlyReturn(quantmod::getSymbols("^GSPC", from = Sys.Date() - lubridate::years(3), auto.assign = FALSE))
     colnames(df_mkt)[1] <- "rm"
 
     df_rf <- quantmod::getSymbols("DGS30", src = "FRED", auto.assign = FALSE)
@@ -68,23 +68,9 @@ get_prices <- function(sym) {
 }
 
 
-get_beta <- function(sym) {
-    df_0 <- get_prices(sym)
-
-    fit <- lm(rs ~ rm_rf, data = df_0)
-    beta_0 <- fit$coefficients["rm_rf"]
-
-    list(beta = beta_0, prices = df_0)
-}
-
-
 get_rr <- function(sym) {
-    list_0 <- get_beta(sym)
-    beta_0 <- list_0$beta
-    rm_rf <- tail(list_0$prices$rm_rf, 1)
-    rf <- tail(list_0$prices$rf, 1)
-
-    rr <- (rf + (beta_0 * rm_rf))
+    df_0 <- get_prices(sym)
+    rr <- (((1 + mean(df_0$rs)) ^ 12 ) - 1)
 
     rr
 }

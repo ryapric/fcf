@@ -4,7 +4,7 @@
 get_fcf <- function(df_in) {
     df_out <- df_in
     df_out$fcf <- (df_out$`Total Cash Flow From Operating Activities` -
-                       df_out$`Total Cash Flows From Investing Activities`)
+                       df_out$`Total Cash Flows From Investing Activities`) * 1000
 
     df_out
 }

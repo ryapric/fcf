@@ -11,6 +11,7 @@ License: MIT + file LICENSE
 Depends: R (>= 3.4.0)
 Imports:
     dplyr (>= 0.7.4),
+    glue,
     lubridate,
     quantmod,
     rvest,
@@ -22,6 +23,6 @@ Suggests:
     testthat
 URL: https://github.com/ryapric/fcf
 BugReports: https://github.com/ryapric/fcf/issues
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
